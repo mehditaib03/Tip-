@@ -1,0 +1,313 @@
+/*remove Arrow in input Type number*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+/*remove Arrow in input Type number*/
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input,
+select,
+textarea {
+    color: hsl(183, 100%, 15%);
+}
+
+textarea:focus,
+input:focus {
+    color: hsl(183, 100%, 15%);
+}
+
+input:focus {
+    outline: 2px solid hsl(172, 67%, 45%);
+}
+
+.hov:hover {
+    border: 1px solid hsl(172, 67%, 45%);
+}
+
+input {
+    font-size: 1.3rem;
+    background-color: hsl(189, 41%, 97%);
+    font-weight: bold;
+    font-family: 'Space Mono', monospace;
+    border: 0px solid;
+}
+
+input[placeholder] {
+    text-align: right;
+}
+
+body h1 {
+    text-align: center;
+}
+
+.container {
+    background-color: white;
+    width: 90%;
+    margin: 0 auto;
+    padding: 1em;
+    border-radius: 20px;
+}
+
+
+
+/*Radio Buttion selections*/
+
+/* label {
+  display:inline-block;
+  padding:3px;
+  border:1px solid #e0e0e0;
+  border-radius:3px;
+  background-color:#F0F0F0;
+  width:10em;
+  text-align:center;
+} */
+
+/* Clicking a label will select its corresponding hidden radio button
+   We can select that radio buttons sibling label and style it. */
+/* input[type='radio'][name='buttonGroup']:checked + label { background-color:#a0a0a0; } */
+
+
+/*---------------------------*/
+/*Section 1 (left)*/
+.dashboard-calcul {
+    color: hsl(0, 0%, 64%);
+}
+
+.dashboard-calcul h5 {
+    color: #757575;
+}
+
+.div-btn-tip {
+    padding: 0;
+    margin: 2.5em 0em;
+}
+
+/*button width padding*/
+.btn-tip {
+    font-family: 'Space Mono', monospace;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: hsl(183, 100%, 15%);
+    color: hsl(189, 41%, 97%);
+    border: 0px solid;
+    padding: 0.3em 0.5em;
+    border-radius: 8px;
+    width: 30%;
+    font-size: 1.3rem;
+    margin: 0.25em 0.2em ;
+}
+
+
+.btn-tip:hover {
+    background-color: hsl(183, 96%, 22%);
+}
+
+#CustumInput {
+    min-width: 75px;
+}
+
+/*input test*/
+.input-style {
+    padding: 13px;
+    border-width: 1px;
+    border-radius: 9px;
+    border-style: solid;
+    border: 0px;
+    width: 100%;
+}
+
+#CustumInput {
+    padding: 0.3em 0.5em;
+    width: 30%;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/*Icon placeholder*/
+.errspan {
+    float: left;
+    font-size: 1.2em;
+    margin-left: 1em;
+    margin-top: -2.1em;
+    position: relative;
+    z-index: 2;
+    color: hsl(184, 14%, 56%);
+}
+
+
+.btn-active {
+    background-color: hsl(172, 67%, 45%);
+    color: hsl(183, 100%, 15%);
+}
+
+
+/*Add svg placeholder to right*/
+/* .inputwrapper {
+    position: relative;
+}
+
+
+.inputwrapper::after {
+    content: attr(data-required);
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    font-size: 15px;
+    transform: translateY(-50%);
+    color: #ccc;
+} */
+
+
+
+
+/*div section 2 (right)*/
+.dashboard-result {
+    background-color: hsl(183, 100%, 15%);
+    padding: 0.5em;
+    border-radius: 20px;
+
+}
+
+/*div TipAmount and tipTotal*/
+h3 {
+    font-size: 1.5rem;
+    color: hsl(172, 67%, 45%);
+}
+
+h5 {
+    margin: 0.5em 0em;
+}
+
+.tipAmount,
+.tipTotal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*Typographie section 2*/
+.TipAmountText {
+    color: white;
+}
+
+.TipAmountText p,
+.TipAmountText h5 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.TipAmountText p {
+    color: hsl(0, 0%, 57%);
+    font-size: .75rem;
+}
+
+/*div button reset*/
+.div-btn-reset {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+
+/*Reset button*/
+#Btn-Reset {
+    width: 90%;
+    cursor: pointer;
+    color: hsl(185deg 64% 89%);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Space Mono', monospace;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    border-color: transparent;
+    padding: 0.5em;
+    background-color: hsl(172, 67%, 45%);
+
+}
+
+.btn-tip {
+    min-width: 65px;
+}
+
+/*Input Error*/
+
+
+@media(max-width:1200px) {
+    #CustumInput {
+        font-size: 1em;
+    }
+}
+
+
+@media(max-width:849px) {
+    .dashboard-calcul {
+        margin-bottom: 1em;
+    }
+}
+
+
+@media(min-width:850px) {
+    .container {
+        display: flex;
+        justify-content: space-between;
+        padding: 2em 1.3em;
+        width: 60%;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    /*Section 1 */
+    .dashboard-calcul {
+        width: 49%;
+    }
+
+    /* .btn-tip {
+        min-width: 44px;
+    }  */
+
+    /*Section 2*/
+    .dashboard-result {
+        width: 47%;
+        padding: 2em;
+        min-width: 300px;
+        margin-left: 1em;
+    }
+
+    .tipAmount {
+        margin-bottom: -1em;
+    }
+
+
+    /*Reset button*/
+    #Btn-Reset {
+        width: 100%;
+    }
+
+    #Btn-Reset:hover {
+        background-color: hsl(172, 81%, 32%);
+
+    }
+
+    #Btn-Reset:active {
+        background-color: hsl(172, 89%, 37%);
+    }
+
+
+    /*Button reset*/
+    .div-btn-reset {
+        margin: 4em 0 0;
+    }
+
+    /* #CustumInput {
+        width: 5.7em;
+    } */
+}
