@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import '../App.css'
 import ResultBill from './ResultBill'
 
@@ -9,7 +9,15 @@ export default function CountBill() {
         custom: 0,
         inputPeople: 0,
         btnValue: 0,
+        btnActive: ""
     })
+
+    function removeActiveBtn() {
+        const buttons = [...document.getElementsByClassName('btn-tip')];
+        buttons.forEach(button => {
+            button.classList.remove('btn-active')
+        })
+    }
 
     /*Handle input Value */
     function handleChange(event) {
@@ -21,38 +29,51 @@ export default function CountBill() {
                 [event.target.name]: parseInt(value)
             }
         })
+        if (event.target.name === "custom") {
+            setValue(prev => {
+                return { ...prev, btnActive: false }
+            }
+            )
+        }
     }
+    function handleCustomeInput(event) {
+        handleChange(event)
+        removeActiveBtn()
+    }
+
     /* reset */
     function reset() {
+        removeActiveBtn()
         setValue({
             billValue: 0,
             custom: 0,
             inputPeople: 0,
             btnValue: 0,
+            btnActive: "",
         })
     }
 
-    console.log("valeur", valueinput);
 
-
-    /*Handle btn Value */
+    /*Get Btn Clicked Value */
     function getBtnValue(event) {
         setValue(prev => {
             return {
-                ...prev,
+                ...prev, btnActive: true,
                 [event.target.name]: parseInt(event.target.value)
             }
         })
-        CustomClick(event)
-    }
-    /*handle CSS Btn when clicked */
-    function handleCSS(event){
-        event.currentTarget.classList.toggle('test')
-        console.log(event.currentTarget.classList.value="mehdi"); 
-        return "mehdi"
+        //add btn Clicked class btn-active
+        const buttons = [...document.getElementsByClassName('btn-tip')];
+        buttons.forEach(button => {
+            if (event.target == button) {
+                button.classList.add('btn-active')
+            } else {
+                button.classList.remove('btn-active')
+            }
+        })
     }
 
-
+    console.log(valueinput);
 
     return (
         <div className="container">
@@ -72,7 +93,7 @@ export default function CountBill() {
                 <div className="div-btn-tip">
                     <h5>Select tip %</h5>
 
-                    <button className={`btn-tip`} name='btnValue' type='button' onClick={getBtnValue} value={"5"}>5%</button>
+                    <button className="btn-tip" name='btnValue' onClick={getBtnValue} value={"5"}>5%</button>
 
                     <button className="btn-tip" name='btnValue' value={"10"} onClick={getBtnValue} >10%</button>
 
@@ -82,8 +103,9 @@ export default function CountBill() {
 
                     <button className="btn-tip" name='btnValue' value={"50"} onClick={getBtnValue} >50%</button>
                     <input id="CustumInput" min={0} max={100} type="number"
-                        step={1} placeholder="Custom" value={valueinput.custom <= 0 ? "" : valueinput.custom}
-                        onChange={handleChange} name='custom'
+                        step={1} placeholder="Custom"
+                        value={(valueinput.btnActive || valueinput.custom <= 0) ? "" : valueinput.custom}
+                        onChange={handleCustomeInput} name='custom'
 
                     />
                 </div>
@@ -97,7 +119,14 @@ export default function CountBill() {
                 />
 
             </div>
-            <ResultBill reset={reset} />
+            <ResultBill
+                reset={reset}
+                billvalue={valueinput.billValue}
+                btnvalue={valueinput.btnValue}
+                custom={valueinput.custom}
+                inputpeople={valueinput.inputPeople}
+                btnactive={valueinput.btnActive}
+            />
         </div>
     )
 }
