@@ -36,6 +36,7 @@ export default function CountBill() {
             )
         }
     }
+    //Handle Custom Input
     function handleCustomeInput(event) {
         handleChange(event)
         removeActiveBtn()
@@ -73,8 +74,6 @@ export default function CountBill() {
         })
     }
 
-    console.log(valueinput);
-
     return (
         <div className="container">
 
@@ -102,16 +101,19 @@ export default function CountBill() {
                     <button className="btn-tip" name='btnValue' value={"25"} onClick={getBtnValue} >25%</button>
 
                     <button className="btn-tip" name='btnValue' value={"50"} onClick={getBtnValue} >50%</button>
+
                     <input id="CustumInput" min={0} max={100} type="number"
                         step={1} placeholder="Custom"
                         value={(valueinput.btnActive || valueinput.custom <= 0) ? "" : valueinput.custom}
-                        onChange={handleCustomeInput} name='custom'
+                        onChange={handleCustomeInput}
+                        name='custom'
 
                     />
                 </div>
 
                 <h5>Number of People</h5>
-                <input className="input-style hov" id="input-people"
+                <input className="input-style hov"
+                    id="input-people"
                     placeholder="0" type="number"
                     min="1" max="1000" name="inputPeople"
                     onChange={handleChange}
